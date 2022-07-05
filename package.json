@@ -1,50 +1,153 @@
 {
-	"name": "fcs-vscode-web",
-	"displayName": "fcs-vscode-web",
-	"description": "FemCAD Script for Visual Studio Code Web.",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.68.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:fcs-vscode-web.helloWorld"
-	],
-	"browser": "./dist/web/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "fcs-vscode-web.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
-	"scripts": {
-		"test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
-		"pretest": "npm run compile-web",
-		"vscode:prepublish": "npm run package-web",
-		"compile-web": "webpack",
-		"watch-web": "webpack --watch",
-		"package-web": "webpack --mode production --devtool hidden-source-map",
-		"lint": "eslint src --ext ts",
-		"run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.68.0",
-		"@types/mocha": "^9.1.1",
-		"eslint": "^8.18.0",
-		"@typescript-eslint/eslint-plugin": "^5.30.0",
-		"@typescript-eslint/parser": "^5.30.0",
-		"mocha": "^10.0.0",
-		"typescript": "^4.7.4",
-		"@vscode/test-web": "^0.0.26",
-		"ts-loader": "^9.3.1",
-		"webpack": "^5.73.0",
-		"webpack-cli": "^4.10.0",
-		"@types/webpack-env": "^1.17.0",
-		"assert": "^2.0.0",
-		"process": "^0.11.10"
-	}
+  "name": "fcs-vscode-web",
+  "version": "0.0.1",
+  "displayName": "fcs-vscode-web",
+  "description": "FemCAD Script for Visual Studio Code Web.",
+  "author": {
+    "name": "Jan Kubošek",
+    "email": "jan.kubosek@histruct.com"
+  },
+  "license": "MIT",
+  "publisher": "kuboja",
+  "qna": false,
+  "categories": [
+    "Programming Languages",
+    "Formatters"
+  ],
+  "keywords": [
+    "FemCAD",
+    "HiStruct"
+  ],
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuboja/fcs-vscode-web"
+  },
+  "bugs": {
+    "url": "https://github.com/kuboja/fcs-vscode-web/issues",
+    "email": "jan.kubosek@histruct.com"
+  },
+  "engines": {
+    "vscode": "^1.68.0"
+  },
+  "activationEvents": [
+    "onCommand:fcs-vscode-web.helloWorld",
+    "onLanguage:fcs"
+  ],
+  "capabilities": {
+    "virtualWorkspaces": true
+  },
+  "browser": "./dist/web/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "fcs",
+        "aliases": [
+          "FemCAD Script",
+          "fcs"
+        ],
+        "extensions": [
+          ".fcs",
+          ".fcs.bak"
+        ],
+        "configuration": "./syntaxes/fcs-language-configuration.json"
+      },
+      {
+        "id": "fcsoutput",
+        "aliases": [
+          "FemCAD fcsoutput"
+        ],
+        "configuration": "./syntaxes/fcs-language-configuration.json",
+        "mimetypes": [
+          "text/x-code-output"
+        ]
+      },
+      {
+        "id": "fcsmth",
+        "aliases": [
+          "FemCAD Math Script",
+          "fcsmth"
+        ],
+        "extensions": [
+          ".fcsmth"
+        ],
+        "configuration": "./syntaxes/fcsmth-language-configuration.json"
+      },
+      {
+        "id": "json",
+        "extensions": [
+          ".fcsdrv",
+          ".fcsdrs",
+          ".fcscdm",
+          ".fcscdf"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "fcs",
+        "scopeName": "source.fcs",
+        "path": "./syntaxes/fcs.tmLanguage.json"
+      },
+      {
+        "language": "fcsoutput",
+        "scopeName": "source.fcs",
+        "path": "./syntaxes/fcs.tmLanguage.json"
+      },
+      {
+        "language": "fcsmth",
+        "scopeName": "source.fcsmth",
+        "path": "./syntaxes/fcsmth.tmLanguage.json"
+      }
+    ],
+    "configurationDefaults": {
+      "[fcs]": {
+        "editor.autoIndent": "brackets",
+        "editor.detectIndentation": false,
+        "editor.tabSize": 3,
+        "editor.insertSpaces": true
+      },
+      "[json]": {
+        "editor.autoIndent": "brackets",
+        "editor.detectIndentation": true,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+      },
+      "[fcsmth]": {
+        "editor.autoIndent": "brackets",
+        "editor.detectIndentation": false,
+        "editor.tabSize": 3,
+        "editor.insertSpaces": true
+      }
+    },
+    "commands": [
+     
+    ]
+  },
+  "scripts": {
+    "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
+    "pretest": "npm run compile-web",
+    "vscode:prepublish": "npm run package-web",
+    "compile-web": "webpack",
+    "watch-web": "webpack --watch",
+    "package-web": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src --ext ts",
+    "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.68.0",
+    "@types/mocha": "^9.1.1",
+    "eslint": "^8.18.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "@vscode/test-web": "^0.0.26",
+    "ts-loader": "^9.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "@types/webpack-env": "^1.17.0",
+    "assert": "^2.0.0",
+    "process": "^0.11.10"
+  }
 }
