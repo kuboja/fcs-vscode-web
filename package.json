@@ -1,8 +1,8 @@
 {
   "name": "fcs-vscode-web",
   "version": "0.0.1",
-  "displayName": "fcs-vscode-web",
-  "description": "FemCAD Script for Visual Studio Code Web.",
+  "displayName": "FCS Script",
+  "description": "FCS Script support for Visual Studio Code Web.",
   "author": {
     "name": "Jan Kubošek",
     "email": "jan.kubosek@histruct.com"
@@ -15,6 +15,7 @@
     "Formatters"
   ],
   "keywords": [
+    "FCS Script",
     "FemCAD",
     "HiStruct"
   ],
@@ -31,7 +32,6 @@
     "vscode": "^1.68.0"
   },
   "activationEvents": [
-    "onCommand:fcs-vscode-web.helloWorld",
     "onLanguage:fcs"
   ],
   "capabilities": {
