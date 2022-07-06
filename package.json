@@ -1,6 +1,6 @@
 {
   "name": "fcs-vscode-web",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "displayName": "FCS Script",
   "description": "FCS Script support for Visual Studio Code Web.",
   "author": {
@@ -120,9 +120,7 @@
         "editor.insertSpaces": true
       }
     },
-    "commands": [
-     
-    ]
+    "commands": []
   },
   "scripts": {
     "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
