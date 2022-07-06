@@ -1,7 +1,7 @@
 {
   "name": "fcs-vscode-web",
   "version": "1.0.0",
-  "displayName": "FCS Script",
+  "displayName": "FCS Script Web",
   "description": "FCS Script support for Visual Studio Code Web.",
   "author": {
     "name": "Jan Kubošek",
