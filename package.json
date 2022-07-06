@@ -1,6 +1,6 @@
 {
   "name": "fcs-vscode-web",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "FCS Script Web",
   "description": "FCS Script support for Visual Studio Code Web.",
   "author": {
