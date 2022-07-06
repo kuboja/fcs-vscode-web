@@ -1,0 +1,16 @@
+
+aTest := {
+   b = 5,
+   c = 15,
+}
+
+bTest = {
+   d = aTest.b,
+   f = aTest.c,
+}
+
+gclass {cTest} filename ("ahoj.fcs")
+
+gblock {gTest} gclass {cTest} lcs {GCS}
+
+gg = gTest.fr
